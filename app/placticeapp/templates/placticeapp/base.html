@@ -1,0 +1,16 @@
+{% load i18n static %}
+<!DOCTYPE html>{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="view-port" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Django Plactice App{% endblock %}</title>
+    </head>
+    <body>
+        <div class="container">
+            {% block content %}
+                {{ content }}
+            {% endblock %}
+        </div>
+    </body>
+</html>

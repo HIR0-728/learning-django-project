@@ -1,0 +1,31 @@
+{% extends "placticeapp/base.html" %}
+{% block title %}人の一覧{% endblock %}
+{% block content %}
+    <h1>人の一覧</h1>
+    <a href="{% url "placticeapp:person_create" %}" class="btn">新規作成</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">名前</th>
+                <th scope="col">年齢</th>
+                <th scope="col">ニックネーム</th>
+                <th scope="col">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in persons %}
+            <tr>
+                <th scope="row">{{ person.id }}</th>
+                <td>{{ person.last_name }} {{ person.first_name }}</td>
+                <td>{{ person.age }}</td>
+                <td>{{ person.nickname }}</td>
+                <td>
+                    <a href="{% url "placticeapp:person_edit" person_id=person.id %}" class="btn">編集</a>
+                    <a href="{% url "placticeapp:person_delete" person_id=person.id %}" class="btn">削除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
