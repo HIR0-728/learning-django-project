@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  plactice-service:
+    image: plactice-service:latest
+    container_name: plactice-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    environment:
+      ENV: prod
+      LOG_LEVEL: INFO
+    tty: true
+    restart: unless-stopped

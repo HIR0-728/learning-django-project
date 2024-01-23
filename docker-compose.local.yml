@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  plactice-service:
+    ports:
+      - 8008:8000
+    volumes:
+      - ./app:/app/app
+    environment:
+      ENV: dev
+      LOG_LEVEL: DEBUG
